@@ -23,10 +23,13 @@ Route::post('/login', [\App\Http\Controllers\TaskController::class, 'login'])->n
 Route::get('/signup', [\App\Http\Controllers\TaskController::class, 'signup'])->name('signup');
 Route::post('/signup', [\App\Http\Controllers\TaskController::class, 'signup']);
 
+Route::group(['middleware'=>'auth_user'], function (){
+    Route::post('/tasks/create', [\App\Http\Controllers\TaskController::class, 'index']);
+    Route::get('/tasks/update', [\App\Http\Controllers\TaskController::class, 'index']);
+    Route::get('/tasks/delete', [\App\Http\Controllers\TaskController::class, 'index']);
 
-Route::post('/tasks', [\App\Http\Controllers\TaskController::class, 'index']);
-Route::get('/tasks', [\App\Http\Controllers\TaskController::class, 'index']);
-Route::get('/tasks', [\App\Http\Controllers\TaskController::class, 'index']);
+});
+
 
 
 

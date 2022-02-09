@@ -18,7 +18,6 @@ class Task extends Model
         'descriptions',
         'status',
         'user_id'
-
     ];
 
     public function __construct(array $attributes = [])

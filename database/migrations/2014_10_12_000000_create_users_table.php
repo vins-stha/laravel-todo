@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableTasks extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateTableTasks extends Migration
      */
     public function up()
     {
-        Schema::create('todo', function (Blueprint $table) {
-            $table->increments('id');
-            $table->text('name');
-            $table->foreign('id')->references('user_id')->on('users')->onDelete('cascade');
-            $table->text('descriptions');
-            $table->string('status');
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateTableTasks extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todo');
+        Schema::dropIfExists('users');
     }
 }

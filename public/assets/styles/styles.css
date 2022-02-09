@@ -13,6 +13,7 @@ a {
 li {
     list-style: none;
 }
+
 .header {
     background-color: #151617;
     height: 6%;
@@ -21,13 +22,16 @@ li {
     justify-content: center;
     justify-content: space-between;
 }
+
 .header__logo {
     width: 20%;
 }
+
 .header__logo img {
     object-fit: contain;
     width: 100%;
 }
+
 .header__navMenus {
     display: flex;
     flex-direction: row;
@@ -35,6 +39,7 @@ li {
     align-items: center;
     max-width: 70%;
 }
+
 .header__navMenus a {
     padding: 1rem;
     font-size: 1.1rem;
@@ -43,6 +48,7 @@ li {
     cursor: pointer;
     text-decoration: none;
 }
+
 .header__navMenus a:hover {
     text-decoration: underline;
     background: linear-gradient(to right, #31d35c, #2bb7da);
@@ -50,15 +56,22 @@ li {
     border-radius: 5px;
 }
 
+.error-message {
+    color: chartreuse;
+    background-color: darkred;
+    padding: 0.25rem;
+    border-radius: 5px;
+    margin-bottom: 0.75rem;
+}
 
 .user-login {
     background-color: #151617;
     width: 100%;
-    padding: 0 auto;
+    padding: 5rem;
     margin: 1rem auto;
 }
 
-.login-form-container {
+.login-form-container, .task-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,6 +79,46 @@ li {
     color: purple;
 }
 
+.task-form-container {
+    border: 1px solid whitesmoke;
+
+}
+
+.form-dropdown {
+    width: auto;
+    padding: 0.5rem;
+    border-radius: 5px
+}
+
 .form-title {
     color: orange;
+}
+
+.text-area {
+    height: 10rem !important;
+}
+
+.btn-submit {
+    width: 45%;
+
+}
+
+.actions {
+    display: flex;
+}
+
+.btn-update {
+    height: 2.5rem;
+    margin-right: 0.75rem;
+}
+
+.task-table-container {
+    padding: 1rem;
+    background-color: #151617;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+}
+.task-descriptions {
+    max-width: 15rem !important;
 }

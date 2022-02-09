@@ -13,6 +13,7 @@
 
 </head>
 
+<body>
 <nav class="header">
     <div class="header__logo" aria-label="logo" role="banner">
         <a href="/" aria-label="Home">
@@ -21,11 +22,23 @@
 
     </div>
     <div id="nav-menus" class="header__navMenus" role="navigation" aria-label="nav menus">
-        <a href="index.html" aria-label="Home">Home</a>
-        <a href="#projects" aria-label="Link to projects section">Tasks</a>
-        <a href="#contact" aria-label="Link to contact us section">Login</a>
-        <a href="single-blog.html" aria-label="Single blog">Signup</a>
+
+        @if(Auth::user())
+            <a>Hi {{Auth::user()->name}}!</a>
+            <a href="{{url ('/tasks')}}">Tasks</a>
+            <a href="{{url ('/tasks/create')}}">Add Tasks</a>
+            <a href="{{url ('/changePassword')}}">Change password</a>
+            <a href="{{url('/logout')}}">Logout</a>
+        @else
+            <a href="{{url('/login')}}">Login</a>
+            <a href="{{url('/signup')}}">Signup</a>
+        @endif
     </div>
 </nav>
+@yield('content')
 
-<body>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="{{asset('assets/scripts/scripts.js')}}"></script>

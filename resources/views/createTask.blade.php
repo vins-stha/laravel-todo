@@ -32,6 +32,6 @@
 
         </form>
     </div>
-{{--@endsection--}}
+
 
 

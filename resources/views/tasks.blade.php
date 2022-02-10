@@ -2,7 +2,7 @@
 <div class="task-table-container">
     <h4 class="form-title">Your tasks lists</h4>
     <p>Filter your tasks by
-    <form action="{{url('/tasks?status=')}}" method="GET">
+    <form action="{{url('/api/v1/tasks?status=')}}" method="GET">
         <span class="error-message" style="visibility: hidden"></span>
         <select class='form-dropdown' name='task-state'
                 onchange="filterOnChange()">
@@ -38,7 +38,7 @@
                     </td>
                     <td>{{$task->status}}</td>
                     <td class="actions">
-                        <a href="{{ url('/tasks/edit/'.$task->id) }}" class="btn btn-primary btn-update"
+                        <a href="{{ url('/api/v1/tasks/edit/'.$task->id) }}" class="btn btn-primary btn-update"
                            name="btn-update">Update</a>
                         <form action="{{ route('Task.destroy', ['id' => $task->id]) }}" method="post">
                             @method('DELETE')

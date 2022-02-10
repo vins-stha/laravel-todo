@@ -8,7 +8,7 @@
             @endforeach
         @endif
 
-        <form action="{{url('/changePassword')}}" method="post">
+        <form action="{{route('updatePassword')}}" method="post">
             @csrf
             @method('PUT')
             <div class="form-floating mb-3">

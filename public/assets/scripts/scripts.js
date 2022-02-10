@@ -2,7 +2,7 @@ function filterOnChange() {
     let status = document.getElementsByName('task-state')[0].value;
     $.ajax({
         method: "get",
-        url: "/tasks?status=" + status
+        url: "/api/v1/tasks?status=" + status
 
     })
         .done(function (message) {

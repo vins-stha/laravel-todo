@@ -25,13 +25,13 @@
 
         @if(Auth::user())
             <a>Hi {{Auth::user()->name}}!</a>
-            <a href="{{url ('/tasks')}}">Tasks</a>
-            <a href="{{url ('/tasks/create')}}">Add Tasks</a>
-            <a href="{{url ('/changePassword')}}">Change password</a>
-            <a href="{{url('/logout')}}">Logout</a>
+            <a href="{{url ('/api/v1/tasks')}}">Tasks</a>
+            <a href="{{url ('/api/v1/tasks/create')}}">Add Tasks</a>
+            <a href="{{url ('/api/v1/changePassword')}}">Change password</a>
+            <a href="{{url('/api/v1/logout')}}">Logout</a>
         @else
-            <a href="{{url('/login')}}">Login</a>
-            <a href="{{url('/signup')}}">Signup</a>
+            <a href="{{url('/api/v1/login')}}">Login</a>
+            <a href="{{url('/api/v1/signup')}}">Signup</a>
         @endif
     </div>
 </nav>

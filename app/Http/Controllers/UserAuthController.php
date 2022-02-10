@@ -30,7 +30,6 @@ class UserAuthController extends Controller
     {
         $ret = "";
 
-
         if ($request->getMethod() == "POST") {
             $email = $request->get('email');
             $password = $request->get('password');
@@ -72,7 +71,7 @@ class UserAuthController extends Controller
      */
     public function signup(Request $request)
     {
-        $ret = "/signup";
+        $ret = "signup";
         if ($request->getMethod() == "POST") {
 
             $email = htmlspecialchars($request->get('email'));
@@ -94,16 +93,14 @@ class UserAuthController extends Controller
 
                 $request->session()->flash('message-success', 'Successfully registered. Please login.');
 
-                $ret = '/login';
+                $ret = 'login';
             } catch (Exception $e) {
                 $request->session()->flash('message', $e->getMessage());
-                $ret = '/signup';
-
-
+                $ret = 'signup';
             }
 
         } else {
-            $ret = "/signup";
+            $ret = "signup";
         }
         return view($ret);
 
@@ -118,11 +115,11 @@ class UserAuthController extends Controller
     {
         $user = Auth::user();
         if (!$user) {
-            return view('login');
+            return redirect()->route('login');
         }
         Session::flush();
         Auth::logout();
-        return view('login');
+        return redirect()->route('login');
 
     }
 
@@ -146,7 +143,7 @@ class UserAuthController extends Controller
             $this->user->password = Hash::make($request->get('new-password'));
 
             $this->user->save();
-            return redirect('/tasks');
+            return redirect()->route('tasks-list');
 
         } catch (QueryException $e) {
 
